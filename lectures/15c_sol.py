@@ -261,10 +261,10 @@ class BinarySearchTree:
             else:
                 # current node is left child of its parent node.
                 #                parent
-                #              /
-                #          currentNode <<< REMOVE
-                #                      \
-                #                       childnode
+                #                    \
+                #                   currentNode <<< REMOVE
+                #                    /
+                #               childnode
                 currentNode.parent.rightChild = currentNode.leftChild
         else:
             if currentNode.isLeftChild():
@@ -293,6 +293,9 @@ def main():
     b.root.traverse()
     print('remove 5')
     b.delete(5)
+    b.root.traverse()
+    print('put 39')
+    b.put(39, 39)
     b.root.traverse()
 
 if __name__ == "__main__":

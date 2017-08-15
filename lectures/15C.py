@@ -35,9 +35,9 @@ class TreeNode(object):
             return None
 
         if self.hasrightchild():
-            return self.rightchild.findmin()
+            return slef.rightchild.findmin()
 
-        if self.parent and self.isleftchild():
+        if self.parent and self.hasleftchild():
             return self.parent
 
     def findmin(self):
@@ -143,32 +143,32 @@ class BinarySearchTree(object):
         else:
             raise KeyError("Key is not in tree!")
 
+
     def remove(self, currentNode):
         if currentNode.isLeaf:
-            if currentNode == self.parent.leftchild:
+            if currentNode.isleftchild():
                 self.parent.leftchild = None
 
-            if currentNode == self.parent.rightchild:
+            else:
                 self.parent.rightchild = None
 
+        elif currentNode.hasbothchildren():
+            succ = currentNode.findsuccessor()
+            succ.sliceout()
+            currentNode.key = succ.key
+            currentNode.payload = succ.payload
+
+        elif currentNode.hasleftchild():
+            if currentNode.isleftchild():
+                currentNode.parent.leftchild = currentNode.leftchild
+            if currentNode.isrightchild():
+                currentNode.parent.rightchild =currentNode.leftchild
+
         else:
-            if currentNode.hasbothchildren():
-                succ = currentNode.findsuccessor()
-                succ.sliceout()
-                currentNode.key = succ.key
-                currentNode.val = succ.val
-
-            elif currentNode.hasleftchild():
-                if currentNode == self.parent.leftchild:
-                    self.parent.leftchild = currentNode.leftchild
-                if currentNode == self.parent.rightchild:
-                    self.parent.rightchild = currentNode.leftchild
-
-            elif currentNode.hasrightchild():
-                if currentNode == self.parent.leftchild:
-                    self.parent.leftchild = currentNode.rightchild
-                if currentNode == self.parent.rightchild:
-                    self.parent.rightchild = currentNode.rightchild
+            if currentNode.isleftchild():
+                currentNode.parent.leftchild = currentNode.rightchild
+            if currentNode.isrightchild():
+                currentNode.parent.rightchild = currentNode.rightchild
 
 
 def main():
