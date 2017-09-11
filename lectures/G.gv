@@ -1,0 +1,16 @@
+graph G {
+	node [shape=box]
+	e
+	subgraph ClusterA {
+		a -- b
+		subgraph ClusterC {
+			C -- D
+		}
+	}
+	subgraph ClusterB {
+		d -- f
+	}
+	e -- ClusterB
+	d -- D
+	ClusterC -- ClusterB
+}
