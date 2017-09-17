@@ -1,0 +1,39 @@
+// HW25
+digraph {
+	node [color=green size=7.5]
+	A [label="7th edition"]
+	B [label="32V"]
+	C [label=V7M]
+	D [label=Xenixn]
+	E [label="UniPlus+"]
+	A -> B
+	A -> C
+	A -> D
+	A -> E
+	F [label="8th edition"]
+	G [label="9th edition"]
+	F -> G
+	H [label="1 BSD"]
+	I [label="2 BSD"]
+	H -> I
+	J [label="2.8 BSD"]
+	I -> J
+	K [label="Ultrix-11"]
+	L [label="2.9 BSD"]
+	J -> K
+	J -> L
+	M [label="3 BSD"]
+	B -> M
+	N [label="4 BSD"]
+	M -> N
+	O [label="4.1 BSD"]
+	N -> O
+	P [label="4.2 BSD"]
+	O -> P
+	O -> J
+	O -> F
+	Q [label="4.3 BSD"]
+	R [label="Ultrix-32"]
+	P -> Q
+	P -> R
+}
