@@ -54,7 +54,7 @@ print(os.getcwd())
 
 
 
-'''
+
 x = 0
 def inc():
      global x
@@ -74,7 +74,7 @@ t1.join()
 t2.join()
 print(x)
 
-
+'''
 def say(msg):
     while True:
         time.sleep(1)
